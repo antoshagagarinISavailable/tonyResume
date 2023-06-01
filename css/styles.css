@@ -1,0 +1,190 @@
+body {
+  background-color: #000;
+  color: white;
+  font-family: "TT Commons", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+}
+dd p {
+  opacity: 0.4;
+}
+h1,
+h2 {
+  font-family: "Redcollar", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+h1 {
+  font-family: Redcollar;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+a {
+  color: white;
+}
+
+/* карточка с контактами и фото */
+.infoCard {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 322px;
+}
+/* photo */
+.photo {
+  width: 322px;
+  height: 355px;
+
+  margin: 0 0 -48px 0;
+}
+.contactInfoWrap {
+  background-color: #f51b1b;
+  position: relative;
+  width: inherit;
+}
+.arrowSVG {
+  position: absolute;
+  top: -18px;
+}
+
+/* name */
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+}
+
+/* contacts */
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px;
+}
+.contactsItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 11px;
+}
+/* описание */
+.aboutText {
+  grid-area: aboutText;
+}
+/* cv */
+.cv {
+  grid-area: cv;
+  position: relative;
+  border: 1px solid #fff;
+}
+
+/* блок с описанием и cv */
+
+/* layout */
+.skills__list {
+  display: flex;
+}
+
+.contactInfoWrap {
+  display: grid;
+}
+/* layout desktop */
+@media screen and (min-width: 360px) {
+  header {
+    position: absolute;
+    width: 240px;
+    height: 24px;
+    right: 41px;
+    top: 26px;
+  }
+  .container {
+    margin: 40px;
+  }
+  .mainWrapper {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 40px;
+  }
+  .infoCard {
+    height: 780px;
+  }
+  .contacts {
+    flex-grow: 1;
+  }
+  .mainInfo {
+    margin-top: 18px;
+    height: 762px;
+  }
+
+  .contactInfoWrap {
+    padding: 40px 24px;
+    border-radius: 24px 24px 0 0;
+
+    gap: 40px;
+  }
+  .skills__list {
+    gap: 32px;
+  }
+  .aboutText p {
+    width: 690px;
+  }
+  .cv {
+    padding: 48px 50px 48px 28px;
+    margin-top: 32px;
+  }
+  .cv__SVG {
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    left: 57px;
+    top: -1px;
+
+    background: #000000;
+  }
+  .infoSection {
+    padding: 20px 0;
+    border-bottom: 1px solid #ffffff40;
+
+    display: flex;
+    gap: 72px;
+  }
+  .infoSection h2 {
+    width: 124px;
+  }
+  .infoSection:first-of-type {
+    padding-top: 0px;
+  }
+  .infoSection:last-of-type {
+    padding-bottom: 0px;
+    border: none;
+  }
+}
+/* layout mobile */
+@media screen and (max-width: 360px) {
+  .container {
+    margin: 20px;
+  }
+  .contactInfoWrap {
+    padding: 24px 16px;
+    border-radius: 20px 20px 0 0;
+
+    gap: 32px;
+  }
+  .skills__list {
+    gap: 16px;
+  }
+}
