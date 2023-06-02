@@ -31,6 +31,7 @@ a {
   color: white;
 }
 
+/* карточка кандидата (фото, имя, контакты) */
 /* card */
 .card {
   display: flex;
@@ -45,63 +46,59 @@ a {
 
   margin: 0 0 -48px 0;
 }
+/* красный блок в секции card */
 .cardInfoWrap {
   background-color: #f51b1b;
   position: relative;
+
+  /* layout внутри красного блока */
+  display: grid;
+  grid-template-rows: min-content max-content;
 }
+/* красная svg в красном блоке */
 .arrowSVG {
   position: absolute;
   top: -18px;
 }
-
+/* блок name: имя возраст город в красном блоке */
 /* name */
 .name {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
+  display: grid;
+
   gap: 8px;
 }
 
+/* блок контаков в красном блоке */
 /* contacts */
 .contacts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
+  display: grid;
   gap: 20px;
 }
+/* горизонтальный gap в контактах между иконкой и текстом со второго 16px */
 .contactsItem {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 0px;
+
+  gap: 16px;
+}
+/* горизонтальный gap в контактах между иконкой и текстом у первого 11px */
+.contacts li:first-child .contactsItem {
   gap: 11px;
 }
-/* aboutText */
-.aboutText {
-  grid-area: aboutText;
-}
+
+/* блок cv: образование, карьера, навыки */
 /* cv */
 .cv {
-  grid-area: cv;
   position: relative;
   border: 1px solid #fff;
 }
-
-/* блок с описанием и cv */
-
-/* layout */
+/* горизонтальный список в секции "Навыки" */
 .skills__list {
   display: flex;
+  gap: 32px;
 }
-
-.cardInfoWrap {
-  display: grid;
-  grid-template-rows: min-content max-content;
-}
-/* layout desktop */
-@media screen and (min-width: 361px) {
+/* layout desktop 1440px */
+@media screen and (min-width: 768px) and (max-width: 1441px) {
   .container {
     margin: 40px;
   }
@@ -115,24 +112,14 @@ a {
   main {
     display: grid;
     grid-template-columns: max-content 1fr;
-    gap: 40px;
+    /* вертикальный gap между карточкой и основной информацией (desktop) */
+    gap: 32px;
   }
-
+  /* карточка кандидата (фото, имя, контакты) (desktop) */
   .card {
     height: 780px;
   }
-  .name p,
-  .contactsItem {
-    font-size: 20px;
-    line-height: 24px;
-    letter-spacing: -0.02em;
-  }
-
-  .mainInfo {
-    margin-top: 18px;
-    height: 762px;
-  }
-
+  /* красный блок в секции card (desktop) */
   .cardInfoWrap {
     padding: 40px 24px;
     border-radius: 24px 24px 0 0;
@@ -140,18 +127,45 @@ a {
     gap: 40px;
     flex-grow: 1;
   }
-  .skills__list {
+  .name {
+    display: grid;
+    gap: 8px;
+  }
+  /* блок контаков в красном блоке (desktop) */
+  /* contacts */
+  .contacts {
+    display: grid;
+    gap: 20px;
+  }
+  /* весь шрифт в card кроме заголовка (desktop) */
+  .card p,
+  .card .contactsItem {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+  }
+  /* правый блок со всей основной информацией:
+текст сверху; образование, карьера, навыки снизу (desktop) */
+  .mainInfo {
+    margin-top: 18px;
+    height: 762px;
+    /* layout внутри блока (desktop) */
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    /* горизонтальный gap между текстом о себе и блоком 
+    "образование, карьера, навыки" (desktop) */
     gap: 32px;
   }
 
-  /* aboutText */
+  /* aboutText (desktop) */
   .aboutText {
     width: 690px;
   }
+  /* блок cv: образование, карьера, навыки (desktop) */
   .cv {
     padding: 48px 50px 48px 28px;
-    margin-top: 32px;
   }
+  /* белая стрелка svg (desktop) */
   .cv__SVG {
     position: absolute;
     width: 60px;
@@ -166,34 +180,68 @@ a {
     border-bottom: 1px solid #ffffff40;
 
     display: flex;
+    /* вертикальный gap между заголовком и dl (desktop) */
     gap: 72px;
+  }
+  /* у секции "Образование" нет padding-top (desktop) */
+  .cv__section:first-of-type {
+    padding-top: 0px;
+  }
+  /* у секции "Навыки" нет padding-bottom и нет border-bottom (desktop) */
+  .cv__section:last-of-type {
+    padding-bottom: 0px;
+    border-bottom: none;
   }
   .cv__section h2 {
     width: 124px;
   }
-  .cv__section:first-of-type {
-    padding-top: 0px;
-  }
-  .cv__section:last-of-type {
-    padding-bottom: 0px;
-    border: none;
-  }
 }
 /* layout mobile */
-@media screen and (max-width: 361px) {
+@media screen and (max-width: 360px) {
   .container {
     margin: 20px;
-    margin-top: 90px;
+    margin-bottom: 58px;
+    /* внутренний layout (mobile) */
+    display: grid;
+    /* горизонтальный gap между лого и карточкой кандидата (mobile) */
+    gap: 48px;
   }
   header {
-    position: absolute;
-    width: 220px;
-    height: 22px;
-    left: 20px;
-    top: 20px;
+    /* layout mobile */
+  }
+  /* красный блок в секции card (mobile) */
+  .cardInfoWrap {
+    padding: 24px 16px 40px;
+    border-radius: 20px 20px 0 0;
+    /* горизонтальный gap между name и contacts (mobile) */
+    gap: 32px;
+  }
+  .name {
+    display: grid;
+    gap: 4px;
+  }
+  /* блок контаков в красном блоке (mobile) */
+  /* contacts */
+  .contacts {
+    display: grid;
+    gap: 16px;
+  }
+  /* весь шрифт в card кроме заголовка (mobile) */
+  .card p,
+  .card .contactsItem {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+  }
+  /* h1 (mobile) */
+  h1 {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
   }
   main {
     display: grid;
+    /* горизонтальный gap между карточкой и текстом о себе (mobile) */
     gap: 40px;
   }
 
@@ -201,11 +249,30 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
+    /* gap между текстом о себе и 
+    cv (образование, карьера, навыки) (mobile) */
     gap: 24px;
   }
+  /* блок cv: образование, карьера, навыки (mobile) */
   .cv {
-    padding: 30px 15px 40px 15px;
+    padding: 40px 15px 30px;
+  }
+  .cv__section {
+    border-bottom: 1px solid #ffffff40;
+    padding: 24px 0;
+
+    display: grid;
+    /* gap между заголовком и dl (mobile) */
+    gap: 16px;
+  }
+  /* у секции "Образование" нет padding-top (mobile) */
+  .cv__section:first-of-type {
+    padding-top: 0px;
+  }
+  /* у секции "Навыки" нет padding-bottom и нет border-bottom (mobile) */
+  .cv__section:last-of-type {
+    padding-bottom: 0px;
+    border-bottom: none;
   }
   .cv__SVG {
     position: absolute;
@@ -217,12 +284,124 @@ a {
 
     background: #000000;
   }
-  .cardInfoWrap {
-    padding: 24px 16px;
-    border-radius: 20px 20px 0 0;
 
+  .skills__list {
+    gap: 16px;
+  }
+}
+
+/* -------------------- это я для себя, надо будет удалить (мой) */
+/* layout мой */
+@media screen and (min-width: 361px) and (max-width: 767px) {
+  .container {
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 58px;
+    /* внутренний layout (мой) */
+    display: grid;
+    /* горизонтальный gap между лого и карточкой кандидата (мой) */
+    gap: 48px;
+  }
+  header {
+    /* layout мой */
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+  }
+  /* photo */
+  .photo {
+    width: 100%;
+    height: 100%;
+
+    margin: 0 0 -48px 0;
+  }
+  /* красный блок в секции card (мой) */
+  .cardInfoWrap {
+    position: relative;
+    padding: 24px 16px 40px;
+    border-radius: 20px 20px 0 0;
+    /* горизонтальный gap между name и contacts (мой) */
     gap: 32px;
   }
+  .arrowSVG {
+    position: absolute;
+    left: calc(50% - 322px / 2 + 1px);
+    top: -18px;
+  }
+  .name {
+    display: grid;
+    gap: 4px;
+  }
+  /* блок контаков в красном блоке (мой) */
+  /* contacts */
+  .contacts {
+    display: grid;
+    gap: 16px;
+  }
+  /* весь шрифт в card кроме заголовка (мой) */
+  .card p,
+  .card .contactsItem {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+  }
+  /* h1 (mobile) */
+  h1 {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+  }
+  main {
+    display: grid;
+    /* горизонтальный gap между карточкой и текстом о себе (мой) */
+    gap: 40px;
+  }
+
+  .mainInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* gap между текстом о себе и 
+    cv (образование, карьера, навыки) (мой) */
+    gap: 24px;
+  }
+  /* блок cv: образование, карьера, навыки (мой) */
+  .cv {
+    padding: 40px 15px 30px;
+    width: 100%;
+  }
+  .cv__section {
+    border-bottom: 1px solid #ffffff40;
+    padding: 24px 0;
+
+    display: grid;
+    /* gap между заголовком и dl (мой) */
+    gap: 16px;
+  }
+  /* у секции "Образование" нет padding-top (мой) */
+  .cv__section:first-of-type {
+    padding-top: 0px;
+  }
+  /* у секции "Навыки" нет padding-bottom и нет border-bottom (мой) */
+  .cv__section:last-of-type {
+    padding-bottom: 0px;
+    border-bottom: none;
+  }
+  .cv__SVG {
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    left: calc(50% - 60px / 2);
+
+    top: -1px;
+
+    background: #000000;
+  }
+
   .skills__list {
     gap: 16px;
   }
