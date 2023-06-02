@@ -284,8 +284,14 @@ a {
 
     background: #000000;
   }
+  dl {
+    display: grid;
+    /* gap между descriptions (mobile) */
+    gap: 12px;
+  }
 
   .skills__list {
+    /* gap между li в навыках (mobile) */
     gap: 16px;
   }
 }
@@ -401,8 +407,14 @@ a {
 
     background: #000000;
   }
+  dl {
+    display: grid;
+    /* gap между descriptions (мой) */
+    gap: 12px;
+  }
 
   .skills__list {
+    /* gap между li в навыках (мой) */
     gap: 16px;
   }
 }
