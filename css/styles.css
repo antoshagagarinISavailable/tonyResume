@@ -18,25 +18,23 @@ h2 {
   font-weight: 400;
 }
 h1 {
-  font-family: Redcollar;
   font-size: 24px;
-  font-weight: 400;
   line-height: 28px;
   letter-spacing: -0.02em;
   text-align: left;
+}
+h2 {
+  font-size: 16px;
+  line-height: 100%;
 }
 a {
   color: white;
 }
 
-/* карточка с контактами и фото */
-.infoCard {
-  /* Auto layout */
-
+/* card */
+.card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
 
   width: 322px;
 }
@@ -47,10 +45,9 @@ a {
 
   margin: 0 0 -48px 0;
 }
-.contactInfoWrap {
+.cardInfoWrap {
   background-color: #f51b1b;
   position: relative;
-  width: inherit;
 }
 .arrowSVG {
   position: absolute;
@@ -81,7 +78,7 @@ a {
   padding: 0px;
   gap: 11px;
 }
-/* описание */
+/* aboutText */
 .aboutText {
   grid-area: aboutText;
 }
@@ -99,11 +96,15 @@ a {
   display: flex;
 }
 
-.contactInfoWrap {
+.cardInfoWrap {
   display: grid;
+  grid-template-rows: min-content max-content;
 }
 /* layout desktop */
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 361px) {
+  .container {
+    margin: 40px;
+  }
   header {
     position: absolute;
     width: 240px;
@@ -111,35 +112,40 @@ a {
     right: 41px;
     top: 26px;
   }
-  .container {
-    margin: 40px;
-  }
-  .mainWrapper {
+  main {
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 40px;
   }
-  .infoCard {
+
+  .card {
     height: 780px;
   }
-  .contacts {
-    flex-grow: 1;
+  .name p,
+  .contactsItem {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.02em;
   }
+
   .mainInfo {
     margin-top: 18px;
     height: 762px;
   }
 
-  .contactInfoWrap {
+  .cardInfoWrap {
     padding: 40px 24px;
     border-radius: 24px 24px 0 0;
 
     gap: 40px;
+    flex-grow: 1;
   }
   .skills__list {
     gap: 32px;
   }
-  .aboutText p {
+
+  /* aboutText */
+  .aboutText {
     width: 690px;
   }
   .cv {
@@ -155,30 +161,63 @@ a {
 
     background: #000000;
   }
-  .infoSection {
+  .cv__section {
     padding: 20px 0;
     border-bottom: 1px solid #ffffff40;
 
     display: flex;
     gap: 72px;
   }
-  .infoSection h2 {
+  .cv__section h2 {
     width: 124px;
   }
-  .infoSection:first-of-type {
+  .cv__section:first-of-type {
     padding-top: 0px;
   }
-  .infoSection:last-of-type {
+  .cv__section:last-of-type {
     padding-bottom: 0px;
     border: none;
   }
 }
 /* layout mobile */
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 361px) {
   .container {
     margin: 20px;
+    margin-top: 90px;
   }
-  .contactInfoWrap {
+  header {
+    position: absolute;
+    width: 220px;
+    height: 22px;
+    left: 20px;
+    top: 20px;
+  }
+  main {
+    display: grid;
+    gap: 40px;
+  }
+
+  .mainInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+  }
+  .cv {
+    padding: 30px 15px 40px 15px;
+  }
+  .cv__SVG {
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    left: calc(50% - 60px / 2);
+
+    top: -1px;
+
+    background: #000000;
+  }
+  .cardInfoWrap {
     padding: 24px 16px;
     border-radius: 20px 20px 0 0;
 
