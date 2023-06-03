@@ -206,9 +206,10 @@ a {
     /* горизонтальный gap между лого и карточкой кандидата (mobile) */
     gap: 48px;
   }
-  header {
-    /* layout mobile */
-  }
+
+  /* header {
+  } */
+
   /* красный блок в секции card (mobile) */
   .cardInfoWrap {
     padding: 24px 16px 40px;
@@ -309,9 +310,9 @@ a {
     /* горизонтальный gap между лого и карточкой кандидата (мой) */
     gap: 48px;
   }
-  header {
-    /* layout мой */
-  }
+  /* header {
+
+  } */
   .card {
     display: flex;
     flex-direction: column;
@@ -399,8 +400,6 @@ a {
   }
   .cv__SVG {
     position: absolute;
-    width: 60px;
-    height: 20px;
     left: calc(50% - 60px / 2);
 
     top: -1px;
