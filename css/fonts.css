@@ -8,7 +8,7 @@
 @font-face {
   font-family: "TT Commons";
   font-style: normal;
-  font-weight: 400;
-  src: local(""), url("../fonts/TT\ Commons\ Regular.woff") format("woff"),
-    url("../fonts/TT\ Commons\ Regular.woff2") format("woff2");
+  font-weight: normal;
+  src: local(""), url("../fonts/TTCommons.woff") format("woff"),
+    url("../fonts/TTCommons.woff2") format("woff2");
 }
